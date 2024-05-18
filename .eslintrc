@@ -1,0 +1,19 @@
+{
+  "extends": "next/core-web-vitals",
+  "env": {
+    "browser": true,
+    "es2024": true,
+    "node": true
+  },
+  "rules": {
+    "no-undef": "error",
+    "no-unused-vars": "error",
+    "import/newline-after-import": "error",
+    "radix": "error",
+    "no-trailing-spaces": "error",
+    "eol-last": "error",
+    "no-alert": "error",
+    "no-lone-blocks": "error",
+    "no-const-assign": "error"
+  }
+}
