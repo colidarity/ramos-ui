@@ -15,7 +15,7 @@ import {
   RoundedIcon,
   ThirdIco,
 } from './styled';
-import { AnimatedIco } from '../components/AnimatedLinesIco/styled';
+
 import AnimatedLinesIco from '../components/AnimatedLinesIco';
 
 const ATFContent = () => {
