@@ -1,5 +1,5 @@
 import React from 'react';
-import { InsightsTitle, InsightsWrapper } from './styled';
+import { InsightsFooter, InsightsTitle, InsightsWrapper } from './styled';
 
 const Insights = () => {
   return (
@@ -19,6 +19,15 @@ const Insights = () => {
           </p>
         </div>
       </InsightsTitle>
+
+      <InsightsFooter>
+        <h2>
+          <small>Up to</small> 45%
+        </h2>
+        Increase your analytics efficiency by upto 45%. Unique <br />
+        algorithms provide insights from data, reduce time for analysis
+        <br /> and save time for making important, informed decisions.
+      </InsightsFooter>
     </InsightsWrapper>
   );
 };

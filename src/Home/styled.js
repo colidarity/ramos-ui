@@ -120,6 +120,26 @@ export const InsightsWrapper = styled.section`
   overflow: hidden;
 `;
 
+export const InsightsFooter = styled.footer`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 60px;
+  margin-block: 60px;
+  h2 {
+    font-size: 88px;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    width: max-content;
+    margin-right: 30px;
+    small {
+      font-size: 18px;
+      line-height: 22px;
+    }
+  }
+`;
+
 export const InsightsTitle = styled.header`
   display: flex;
   justify-content: left;
