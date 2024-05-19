@@ -11,7 +11,7 @@ export const Container = styled.div`
 
 export const ContentSection = styled.section`
   width: 100%;
-  height: 100vh;
+  height: 768px;
   position: relative;
 `;
 
@@ -71,7 +71,7 @@ export const ATFHead = styled.h1`
     }
     &.space {
       display: inline-block;
-      width: 80px;
+      width: 70px;
     }
     &.light {
       color: var(--light-gray);
@@ -110,4 +110,36 @@ export const ThirdIco = styled(RoundedIcon)`
   position: absolute;
   top: 425px;
   left: 580px;
+`;
+
+export const InsightsWrapper = styled.section`
+  background-color: var(--insights-bg);
+  border-radius: 100px;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+`;
+
+export const InsightsTitle = styled.header`
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-top: 140px;
+  div {
+    padding-inline: 100px;
+    &:nth-child(1) {
+      width: 60%;
+      h2 {
+        font-size: 36px;
+      }
+    }
+    &:nth-child(2) {
+      width: 40%;
+      p {
+        line-height: 26px;
+        font-size: 18px;
+      }
+    }
+  }
+  font-size: 46px;
 `;

@@ -32,7 +32,7 @@ const ATFContent = () => {
       <ATFHead>
         <span className="block">Analytics</span>
         <span className="block">
-          that <span className="light">helps</span> you &nbsp;
+          that <span className="light">help</span> you &nbsp;
         </span>
         <span className="block">
           shape <span className="space"></span> the future

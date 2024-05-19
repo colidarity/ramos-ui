@@ -10,7 +10,7 @@ export const AnimatedIco = styled.figure`
   span {
     display: inline-block;
     background-color: var(--black);
-    width: 3px;
+    width: 5px;
     border-radius: 3px;
     margin-inline: 2px;
     position: absolute;
