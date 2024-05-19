@@ -1,9 +1,9 @@
 import React from 'react';
-import { Button } from '../Controls';
 
 import { Logo, Nav, StyledHeader } from './styled';
 
 import LogoImage from '../../../assets/images/ramos-logo.png';
+import { Button } from '../../Home/styled';
 
 const NavItems = [
   { link: '#', title: 'Dashboard' },
@@ -28,7 +28,9 @@ const PrimaryHeader = () => {
           ))}
         </ul>
       </Nav>
-      <Button>Sign Up</Button>
+      <Button bg="var(--btn-gray)" color="var(--black)">
+        Sign Up
+      </Button>
     </StyledHeader>
   );
 };
