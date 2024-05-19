@@ -1,0 +1,45 @@
+* {
+  font-family: 'Urbanist', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --body-bg: #dcdee2;
+  --header-bg: #0d0d0d;
+  --nav-bg: #252525;
+  --white: #fff;
+  --menu-bg: #252525;
+  --black: #000;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--body-bg);
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-space-around {
+  justify-content: space-around;
+}
+
+.justify-space-between {
+  justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
+}
