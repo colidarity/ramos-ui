@@ -11,9 +11,11 @@ export const StyledHeader = styled.div`
 export const Logo = styled.a`
   text-decoration: none;
   display: inline;
+  height: 30px;
   img {
     margin-left: 10px;
     height: 30px;
+    width: 100px;
   }
 `;
 
