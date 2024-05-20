@@ -22,10 +22,10 @@ const ATFContent = () => {
   return (
     <ContentSection>
       <ATFIconGroup>
-        <RoundedIcon size={'78px'} bg={'var(--btn-gray)'}>
+        <RoundedIcon imagesize={'40px'} size={'102px'} bg={'var(--btn-gray)'}>
           <img src={BoltIco} />
         </RoundedIcon>
-        <RoundedIcon size={'78px'} bg={'var(--orange)'}>
+        <RoundedIcon imagesize={'40px'} size={'102px'} bg={'var(--orange)'}>
           <img src={LineChartIco} />
         </RoundedIcon>
       </ATFIconGroup>
@@ -39,14 +39,14 @@ const ATFContent = () => {
         </span>
       </ATFHead>
 
-      <ThirdIco size={'78px'} bg={'var(--yellow)'}>
+      <ThirdIco imagesize={'40px'} size={'102px'} bg={'var(--yellow)'}>
         <AnimatedLinesIco />
       </ThirdIco>
       <ATFVideo>
         <PlayBtn>
           <img src={PlayIco} width={30} height={30} />
         </PlayBtn>
-        <ATFImageStyled width={350} height={200} src={ATFImage} /> <br />
+        <ATFImageStyled width={400} height={250} src={ATFImage} /> <br />
       </ATFVideo>
     </ContentSection>
   );

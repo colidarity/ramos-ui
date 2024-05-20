@@ -10,12 +10,12 @@ export const AnimatedIco = styled.figure`
   span {
     display: inline-block;
     background-color: var(--black);
-    width: 5px;
+    width: 10px;
     border-radius: 3px;
     margin-inline: 2px;
     position: absolute;
     &:nth-child(1) {
-      height: 15px;
+      height: 20px;
       bottom: 25px;
       left: 25px;
     }
@@ -25,7 +25,7 @@ export const AnimatedIco = styled.figure`
       left: 35px;
     }
     &:nth-child(3) {
-      height: 5px;
+      height: 10px;
       bottom: 35px;
       left: 45px;
     }

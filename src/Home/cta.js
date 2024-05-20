@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, CTAWrapper, RoundedIcon } from './styled';
+import { BigH1, Button, ButtonGroup, CTAWrapper, RoundedIcon } from './styled';
 
 import HeartBeatIco from '../../assets/images/heart-beat.png';
 import GrowFasterIco from '../../assets/images/grow-faster.png';
@@ -7,10 +7,10 @@ import GrowFasterIco from '../../assets/images/grow-faster.png';
 const CTA = () => {
   return (
     <CTAWrapper>
-      <h1>
+      <BigH1>
         Maximize <span className="light">efficiency</span>
         <br /> with our intuitive
-      </h1>
+      </BigH1>
 
       <div className="badges">
         <div className="icons">
@@ -37,14 +37,14 @@ const CTA = () => {
           it evolves
         </p>
 
-        <div className="btn-group">
-          <Button bg="var(--btn-gray)" width="max-content" color="var(--black)">
+        <ButtonGroup>
+          <Button bg="var(--btn-gray)" width="150px" color="var(--black)">
             Request a demo
           </Button>
-          <Button bg="var(--orange)" width="max-content" color="var(--white)">
+          <Button bg="var(--orange)" width="150px" color="var(--white)">
             Start for free
           </Button>
-        </div>
+        </ButtonGroup>
       </div>
     </CTAWrapper>
   );

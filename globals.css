@@ -51,6 +51,10 @@ body {
   align-items: center;
 }
 
+a:hover {
+  color: #fe4a23 !important;
+}
+
 @keyframes animateMarquee {
   from {
     left: 0;

@@ -32,13 +32,13 @@ export const Nav = styled.nav`
     list-style: none;
     display: flex;
     justify-content: space-between;
+
     li a {
+      padding: 10px;
       color: var(--white);
       text-decoration: none;
       font-size: 12px;
-      &:hover {
-        text-decoration: underline;
-      }
+      transition: color 0.3s ease-in-out;
     }
   }
 `;
