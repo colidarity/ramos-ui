@@ -17,8 +17,6 @@ export const ContentSection = styled.section`
 
 export const ATFImageStyled = styled.img``;
 
-export const Heading = styled.heading;
-
 export const ATFVideo = styled.figure`
   width: 350px;
   height: 200px;
@@ -44,9 +42,16 @@ export const PlayBtn = styled.button`
   top: 0;
   left: 0;
   transform: translate(-10px, -10px);
+  transition: all 0.2s ease-in;
+  cursor: pointer;
   img {
     height: 12px;
     width: 12px;
+  }
+  &:hover {
+    transform: translate(-9px, -9px);
+    background-color: var(--green);
+    box-shadow: rgba(0, 0, 0, 0.5) 0px -4px 4px -5px inset;
   }
 `;
 
@@ -101,8 +106,8 @@ export const RoundedIcon = styled.figure`
   height: ${(props) => props.size};
   background-color: ${(props) => props.bg};
   img {
-    height: ${(props) => (props.imageSize ? props.imageSize : '40px')};
-    width: ${(props) => (props.imageSize ? props.imageSize : '40px')};
+    height: ${(props) => (props.imagesize ? props.imagesize : '40px')};
+    width: ${(props) => (props.imagesize ? props.imagesize : '40px')};
   }
 `;
 
@@ -270,11 +275,12 @@ export const Button = styled.button`
   border-radius: 10px;
   margin-right: 8px;
   border: none;
-  transition: background-color 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
   cursor: pointer;
   &:hover {
-    background-color: #efefef;
     cursor: pointer;
+    transform: translate(1px, 1px);
+    box-shadow: rgba(0, 0, 0, 0.5) 0px -4px 4px -5px inset;
   }
 `;
 
@@ -374,7 +380,7 @@ export const SalesStatisticCard = styled.div`
       }
     }
 
-    p {
+    span.counter {
       font-size: 24px;
       display: flex;
       flex-direction: row;
@@ -384,6 +390,77 @@ export const SalesStatisticCard = styled.div`
         flex-direction: row;
         color: var(--green);
         font-size: 12px;
+      }
+    }
+  }
+`;
+
+export const CTAWrapper = styled.section`
+  padding: 100px 60px;
+
+  h1 {
+    font-size: 86px;
+    position: relative;
+    color: var(--black);
+  }
+
+  span.light {
+    text-align: right;
+    color: var(--light-gray);
+  }
+
+  .cta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-block: 40px;
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .badges {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid thin #efefef;
+    padding-bottom: 40px;
+    .icons {
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      margin-block: 20px;
+      figure {
+        margin: 0 -5px;
+        &:nth-child(1) {
+          z-index: 1;
+        }
+        &:nth-child(2) {
+          z-index: 2;
+        }
+      }
+    }
+
+    .badge {
+      width: 300px;
+      background: var(--yellow);
+      padding: 12px;
+      overflow: hidden;
+      height: 86px;
+      border-radius: 50px;
+      position: relative;
+      h2 {
+        position: absolute;
+        animation: animateMarquee 8s linear infinite;
+        font-size: 86px;
+        color: var(--black);
+        line-height: 86px;
+        width: max-content;
+        span {
+          padding-inline: 100px;
+        }
       }
     }
   }

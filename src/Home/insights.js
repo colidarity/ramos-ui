@@ -57,7 +57,7 @@ const Insights = () => {
             <div>
               <figure className="total-profit">
                 <RoundedIcon
-                  imageSize="20px"
+                  imagesize="20px"
                   size={'60px'}
                   bg={'var(--orange)'}
                 >
@@ -74,11 +74,11 @@ const Insights = () => {
               <figure className="visitors">
                 <figcaption>Visitors</figcaption>
                 <span className="progress-bar"></span>
-                <p>
+                <span className="counter">
                   56K
                   <sup>
                     <RoundedIcon
-                      imageSize="10px"
+                      imagesize="10px"
                       size={'16px'}
                       bg={'var(--green)'}
                     >
@@ -86,7 +86,7 @@ const Insights = () => {
                     </RoundedIcon>
                     &nbsp; +14%
                   </sup>
-                </p>
+                </span>
               </figure>
             </div>
           </SalesStatisticCard>
@@ -104,7 +104,7 @@ const Insights = () => {
             <figure className="transactions">
               <h5>Transactions</h5>
               <span>
-                <RoundedIcon imageSize="15px" size={'20px'} bg={'var(--green)'}>
+                <RoundedIcon imagesize="15px" size={'20px'} bg={'var(--green)'}>
                   <img src={UpArrowIco} />
                 </RoundedIcon>
                 &nbsp;<sup>+14%</sup>

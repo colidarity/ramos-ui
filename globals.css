@@ -50,3 +50,12 @@ body {
 .align-center {
   align-items: center;
 }
+
+@keyframes animateMarquee {
+  from {
+    left: 0;
+  }
+  to {
+    left: -853px;
+  }
+}
