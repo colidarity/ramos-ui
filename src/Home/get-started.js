@@ -7,11 +7,6 @@ import LinkIco from '../../assets/images/link.png';
 const GetStarted = () => {
   return (
     <GetStartedWrapper>
-      <BigH1>
-        We give you full
-        <br /> <span className="light">control</span> over your data
-      </BigH1>
-
       <div className="get-started-sec">
         <figure className="logo-ico">
           <img src={LinkIco} alt="logo" />

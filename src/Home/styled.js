@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import GridBg from '../../assets/images/grid-bg.png';
 
 export const Container = styled.div`
   width: 1300px;
@@ -145,6 +146,7 @@ export const RoundedIcon = styled.figure`
   width: ${(props) => props.size};
   height: ${(props) => props.size};
   background-color: ${(props) => props.bg};
+  border: ${(props) => (props.border ? props.border : 'none')};
   img {
     height: ${(props) => (props.imagesize ? props.imagesize : '40px')};
     width: ${(props) => (props.imagesize ? props.imagesize : '40px')};
@@ -162,6 +164,7 @@ export const InsightsWrapper = styled.section`
   border-radius: 100px;
   position: relative;
   overflow: hidden;
+  height: 768px;
 `;
 
 export const InsightsFooter = styled.footer`
@@ -460,7 +463,8 @@ export const ButtonGroup = styled.div`
 
 export const CTAWrapper = styled.section`
   padding: 100px 60px;
-
+  height: 768px;
+  box-sizing: border-box;
   .cta {
     display: flex;
     justify-content: space-between;
@@ -617,10 +621,16 @@ export const FooterWrapper = styled.footer`
   }
 `;
 
+export const FullControlWrapper = styled.section`
+  padding: 0 60px;
+  box-sizing: border-box;
+  height: 880px;
+`;
+
 export const GetStartedWrapper = styled.section`
   padding: 100px 60px;
+  box-sizing: border-box;
   .get-started-sec {
-    margin-top: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -643,8 +653,209 @@ export const GetStartedWrapper = styled.section`
     p {
       text-align: center;
       color: var(--gray-text);
-
       font-size: 22px;
+      line-height: 26px;
     }
+  }
+`;
+
+export const DataControl = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block: 60px;
+  > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 30px;
+    overflow: hidden;
+    width: 580px;
+    height: 580px;
+    background-image: url(${GridBg});
+    background-position: -2px -2px;
+    background-size: 100px;
+    position: relative;
+    &:after {
+      z-index: 1;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        rgba(249, 249, 249, 0),
+        rgba(249, 249, 249, 1)
+      );
+    }
+
+    > * {
+      z-index: 2;
+    }
+
+    h4,
+    p {
+      text-align: center;
+    }
+    h4 {
+      text-align: center;
+      color: var(--black);
+      font-size: 32px;
+      margin-top: 60px;
+    }
+    > p {
+      font-size: 18px;
+      color: '#242424';
+      line-height: 26px;
+    }
+  }
+`;
+
+export const ImprovedCustomerService = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  box-sizing: border-box;
+`;
+
+export const PerformanceCard = styled.div`
+  display: flex;
+  align-items: space-evenly;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 20px;
+  width: 200px;
+  box-sizing: border-box;
+  h6.title {
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+`;
+
+export const SalesRevenue = styled(PerformanceCard)`
+  box-shadow: rgba(0, 0, 0, 0.12) -20px 20px 20px -20px;
+  transform: translateY(30px);
+  padding: 20px;
+  justify-content: center;
+  align-items: flex-start;
+
+  h6.title {
+    color: var(--gray-text);
+    text-align: left;
+  }
+
+  .revenue {
+    font-size: 32px;
+    small {
+      margin-right: 10px;
+      font-size: 24px;
+    }
+  }
+`;
+
+export const AnimatedBar = styled.figure`
+  width: 33%;
+  position: relative;
+  display: block;
+  margin: 20px auto;
+  height: 5px;
+  background-color: var(--yellow);
+  border-radius: 3px;
+  &:after,
+  &:before {
+    border-radius: 3px;
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    background-color: var(--green);
+    content: ' ';
+  }
+  &:before {
+    left: -105%;
+  }
+  &:after {
+    left: 105%;
+  }
+`;
+
+export const Price = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    min-height: 30px;
+    figure {
+      margin-right: 06px;
+    }
+
+    &:last-child {
+      border-top: solid thin var(--light-gray);
+      padding-block: 6px;
+    }
+  }
+  p {
+    font-size: 12px;
+    color: var(--gray-text);
+  }
+  span {
+    margin-left: auto;
+    font-weight: 500;
+    color: var(--black);
+    font-size: 12px;
+  }
+`;
+
+export const ConversionRate = styled(PerformanceCard)`
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 25px 20px -20px;
+  padding: 40px;
+  justify-content: center;
+  align-items: center;
+  h6.title {
+    color: var(--black);
+  }
+  .conversion-rate {
+    background-color: var(--yellow);
+    width: 120px;
+    height: 80px;
+    border-radius: 20px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    figure {
+      position: absolute;
+      top: -14px;
+      left: -14px;
+    }
+
+    h5.rate {
+      font-size: 46px;
+
+      small {
+        font-size: 30px;
+      }
+    }
+  }
+
+  p {
+    font-size: 12px !important;
+    color: var(--gray-text);
+    margin-top: 16px;
+    line-height: 16px;
+  }
+`;
+
+export const CardFlex = styled.div`
+  display: flex;
+  > div {
+    margin: -10px;
   }
 `;

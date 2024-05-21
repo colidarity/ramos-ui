@@ -9,6 +9,7 @@ import GetStarted from './get-started';
 
 import { Container } from './styled';
 import Footer from './footer';
+import FullControl from './full-control';
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <ATFContent />
       <Insights />
       <CTA />
+      <FullControl />
       <GetStarted />
       <Footer />
     </Container>
