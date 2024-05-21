@@ -13,7 +13,7 @@ import LayerIco from '../../assets/images/layer-thick-light-ico.svg';
 import LayerIcoYellow from '../../assets/images/layer-ico-yellow.png';
 import PersonIco1 from '../../assets/images/person-ico-1.svg';
 import PersonIco2 from '../../assets/images/person-ico-2.svg';
-
+import VisitStats from '../../assets/images/visit-stats.png';
 import UpArrowIco from '../../assets/images/up-arrow.svg';
 
 const Insights = () => {
@@ -89,6 +89,11 @@ const Insights = () => {
                 </span>
               </figure>
             </div>
+            <img
+              src={VisitStats}
+              className="visit-statistics"
+              alt="visit statistics"
+            />
           </SalesStatisticCard>
         </div>
         <div className="right-card">

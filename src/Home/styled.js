@@ -143,7 +143,8 @@ export const RoundedIcon = styled.figure`
   justify-content: center;
   align-items: center;
   border: none;
-  border-radius: 100%;
+  border-radius: ${(props) =>
+    props.borderradius ? props.borderradius : '100%'};
   width: ${(props) => props.size};
   height: ${(props) => props.size};
   background-color: ${(props) => props.bg};
@@ -165,7 +166,6 @@ export const InsightsWrapper = styled.section`
   border-radius: 100px;
   position: relative;
   overflow: hidden;
-  height: 768px;
 `;
 
 export const InsightsFooter = styled.footer`
@@ -351,7 +351,7 @@ export const SalesStatisticCard = styled.div`
   border-left: solid thin #e7e7e7;
   border-top: solid thin #e7e7e7;
   border-top-left-radius: 30px;
-  padding: 20px;
+  padding: 20px 20px 0 20px;
   box-sizing: border-box;
   h4 {
     font-size: 18px;
@@ -363,6 +363,9 @@ export const SalesStatisticCard = styled.div`
     gap: 10px;
   }
 
+  .visit-statistics {
+    width: 100%;
+  }
   .total-profit {
     width: 60%;
     margin-block: 10px;
@@ -675,7 +678,7 @@ export const DataControl = styled.div`
     height: 580px;
     background-image: url(${GridBg});
     background-position: -2px -2px;
-    background-size: 100px;
+    background-size: 70px;
     position: relative;
     &:after {
       z-index: 1;
@@ -869,4 +872,54 @@ export const MonitoringKeyIndicators = styled.div`
   box-sizing: border-box;
 `;
 
-export const DataVisualization = styled.div``;
+export const DataVisualization = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  h5 {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    figure {
+      margin-right: 10px;
+    }
+  }
+
+  .card-bg {
+    width: 340px;
+    border: solid thin #e8e8e8;
+    background-color: var(--white);
+    padding: 10px 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    position: relative;
+    box-sizing: border-box;
+    &:before {
+      width: 280px;
+      height: 25px;
+      border: solid thin #e8e8e8;
+      border-bottom: none;
+      background-color: var(--white);
+      content: ' ';
+      position: absolute;
+      left: 30px;
+      top: -27px;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+  }
+
+  .insights {
+    background-color: var(--white);
+    border: solid thin #e8e8e8;
+    border-radius: 20px;
+    width: 400px;
+    height: 200px;
+    padding: 20px;
+
+    .insights-chart {
+      width: 100%;
+    }
+  }
+`;

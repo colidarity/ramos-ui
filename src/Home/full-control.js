@@ -3,6 +3,9 @@ import React from 'react';
 import Growth from '../../assets/images/conversion-rate.svg';
 import Person1Ico from '../../assets/images/person-ico-1.svg';
 import Person2Ico from '../../assets/images/person-ico-1.svg';
+import LinkIco from '../../assets/images/link-ico.png';
+import InsightsIco from '../../assets/images/insights.png';
+import InsightsChart from '../../assets/images/insights-chart.png';
 
 import {
   AnimatedBar,
@@ -91,7 +94,40 @@ const FullControl = () => {
         </ImprovedCustomerService>
         <MonitoringKeyIndicators>
           <DataVisualization>
-            <div className="card-bg"></div>
+            <div className="card-bg">
+              <h5>
+                <RoundedIcon
+                  borderradius={'6px'}
+                  imagesize="14px"
+                  size={'22px'}
+                  bg={'#f2f2f2'}
+                >
+                  <img src={LinkIco} alt="reports icon" />
+                </RoundedIcon>
+                Finance Reports
+              </h5>
+            </div>
+
+            <div className="insights">
+              <div className="left">
+                <h5>
+                  <RoundedIcon
+                    borderradius={'6px'}
+                    imagesize="14px"
+                    size={'22px'}
+                    bg={'#f2f2f2'}
+                  >
+                    <img src={InsightsIco} alt="insights icon" />
+                  </RoundedIcon>
+                  Insights
+                </h5>
+                <img
+                  className="insights-chart"
+                  src={InsightsChart}
+                  alt="insights chart"
+                />
+              </div>
+            </div>
           </DataVisualization>
           <h4>Monitoring key indicators</h4>
           <p>
