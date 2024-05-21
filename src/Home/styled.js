@@ -42,6 +42,7 @@ export const PlayBtn = styled.button`
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 100;
   transform: translate(-20px, -18px);
   transition: all 0.2s ease-in;
   cursor: pointer;
@@ -859,3 +860,13 @@ export const CardFlex = styled.div`
     margin: -10px;
   }
 `;
+
+export const MonitoringKeyIndicators = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  box-sizing: border-box;
+`;
+
+export const DataVisualization = styled.div``;

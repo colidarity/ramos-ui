@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { lazy } from 'react';
 
 import PrimaryHeader from '../components/PrimaryHeader';
 
-import CTA from './cta';
-import ATFContent from './atf';
-import Insights from './insights';
-import GetStarted from './get-started';
-
 import { Container } from './styled';
-import Footer from './footer';
-import FullControl from './full-control';
+
+const CTA = lazy(() => import('./cta'));
+const ATFContent = lazy(() => import('./atf'));
+const Insights = lazy(() => import('./insights'));
+const GetStarted = lazy(() => import('./get-started'));
+const Footer = lazy(() => import('./footer'));
+const FullControl = lazy(() => import('./full-control'));
 
 const Home = () => {
   return (

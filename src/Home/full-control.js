@@ -10,8 +10,10 @@ import {
   CardFlex,
   ConversionRate,
   DataControl,
+  DataVisualization,
   FullControlWrapper,
   ImprovedCustomerService,
+  MonitoringKeyIndicators,
   Price,
   RoundedIcon,
   SalesRevenue,
@@ -87,14 +89,17 @@ const FullControl = () => {
             <br /> with customers and increase their satisfaction.
           </p>
         </ImprovedCustomerService>
-        <div className="monitoring-key-indicators">
+        <MonitoringKeyIndicators>
+          <DataVisualization>
+            <div className="card-bg"></div>
+          </DataVisualization>
           <h4>Monitoring key indicators</h4>
           <p>
             Analytics platforms allow businessnes to track
             <br /> KPIs, an important tool for measuring success
             <br /> and achieving goals.
           </p>
-        </div>
+        </MonitoringKeyIndicators>
       </DataControl>
     </FullControlWrapper>
   );
