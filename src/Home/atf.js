@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import ATFImage from '../../assets/images/atf-image.png';
 import PlayIco from '../../assets/images/play-light-ico.svg';
@@ -17,36 +17,102 @@ import {
 } from './styled';
 
 import AnimatedLinesIco from '../components/AnimatedLinesIco';
+import useInView from '../hooks/useInView';
+import TextSplitter from '../components/TextSplitter';
 
 const ATFContent = () => {
+  const headingRef = useRef(null);
+  const isVisible = useInView(headingRef);
+  const [showIcons, setShowIcons] = useState(false);
+
+  useEffect(() => {
+    if (isVisible) {
+      setTimeout(() => {
+        setShowIcons(true);
+      }, 1000);
+    } else {
+      setShowIcons(false);
+    }
+  }, [isVisible]);
+  console.log(isVisible);
+
   return (
     <ContentSection>
       <ATFIconGroup>
-        <RoundedIcon imagesize={'40px'} size={'102px'} bg={'var(--btn-gray)'}>
+        <RoundedIcon
+          className={`${
+            showIcons
+              ? 'fade-in animate__animated  animate__rotateIn animate__rotateIn'
+              : 'hidden'
+          }`}
+          imagesize={'40px'}
+          size={'102px'}
+          bg={'var(--btn-gray)'}
+        >
           <img src={BoltIco} />
         </RoundedIcon>
-        <RoundedIcon imagesize={'40px'} size={'102px'} bg={'var(--orange)'}>
+        <RoundedIcon
+          className={`${
+            showIcons
+              ? 'fade-in animate__animated  animate__rotateIn animate__rotateIn'
+              : 'hidden'
+          }`}
+          imagesize={'40px'}
+          size={'102px'}
+          bg={'var(--orange)'}
+        >
           <img src={LineChartIco} />
         </RoundedIcon>
       </ATFIconGroup>
-      <ATFHead>
-        <span className="block">Analytics</span>
+
+      <ATFHead ref={headingRef} className={isVisible ? 'animate-heading' : ''}>
         <span className="block">
-          that <span className="light">help</span> you &nbsp;
+          <TextSplitter text={'Analytics'} />
         </span>
         <span className="block">
-          shape <span className="space"></span> the future
+          <TextSplitter text={'that'} />
+          &nbsp;
+          <span className="light">
+            <TextSplitter text={'help'} />
+            &nbsp;
+          </span>
+          <TextSplitter text={'you'} /> &nbsp;
+        </span>
+        <span className="block">
+          <TextSplitter text={'shape'} /> &nbsp;<span className="space"></span>
+          <TextSplitter text={'the'} />
+          &nbsp;
+          <TextSplitter text={'future'} />
         </span>
       </ATFHead>
 
-      <ThirdIco imagesize={'40px'} size={'102px'} bg={'var(--yellow)'}>
+      <ThirdIco
+        className={
+          showIcons ? 'fade-in animate__animated  animate__zoomIn' : 'hidden'
+        }
+        imagesize={'40px'}
+        size={'102px'}
+        bg={'var(--yellow)'}
+      >
         <AnimatedLinesIco />
       </ThirdIco>
       <ATFVideo>
-        <PlayBtn>
+        <PlayBtn
+          className={
+            showIcons ? 'fade-in animate__animated  animate__zoomIn' : 'hidden'
+          }
+        >
           <img src={PlayIco} width={30} height={30} />
         </PlayBtn>
-        <ATFImageStyled width={400} height={250} src={ATFImage} /> <br />
+        <ATFImageStyled
+          className={
+            showIcons ? 'fade-in animate__animated  animate__zoomIn' : 'hidden'
+          }
+          width={400}
+          height={250}
+          src={ATFImage}
+        />{' '}
+        <br />
       </ATFVideo>
     </ContentSection>
   );

@@ -60,10 +60,14 @@ export const ATFHead = styled.h1`
   line-height: 120px;
   position: relative;
   top: 200px;
+
   span {
     color: #1a1a1a;
     text-align: right;
     &.block {
+      position: relative;
+      overflow: hidden;
+      max-height: 120px;
       display: block;
       &:nth-child(1) {
         width: 63%;
@@ -75,6 +79,7 @@ export const ATFHead = styled.h1`
         width: 100%;
       }
     }
+
     &.space {
       display: inline-block;
       width: 70px;
@@ -83,7 +88,41 @@ export const ATFHead = styled.h1`
       color: var(--light-gray);
     }
   }
+
+  span.split {
+    /* display: inline-block; */
+    /* transform: translateY(120px); */
+    position: relative;
+    top: 120px;
+  }
+
+  ${staggeredTransition()}
+
+  &.animate-heading span span.split {
+    top: 0;
+  }
 `;
+
+function staggeredTransition() {
+  return Array(10)
+    .fill(0)
+    .map(
+      (_, blockIdx) => `span.block:nth-child(${blockIdx + 1}) {
+      ${Array(20)
+        .fill(0)
+        .reduce((splits, __, splitIdx) => {
+          splits += `
+          span.split:nth-child(${splitIdx + 1}) {
+            transition: top ${(blockIdx + 7 + splitIdx) / 10}s ease;
+          }
+        \n`;
+          return splits;
+        }, '')}
+    }
+    `
+    )
+    .join('\n');
+}
 
 export const ATFIconGroup = styled.figure`
   display: flex;

@@ -63,3 +63,17 @@ a:hover {
     left: -853px;
   }
 }
+
+.split {
+  transform: translateX(-100%);
+}
+
+.hidden {
+  visibility: none;
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
+
+.fade-in {
+  opacity: 1;
+}
