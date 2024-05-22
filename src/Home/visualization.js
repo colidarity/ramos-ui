@@ -15,6 +15,7 @@ const Visualization = () => {
   const titleVisible = useInView(titleRef, { threshold: '0.5' });
   const headingVisible = useInView(headingRef);
   const accordionVisible = useInView(accordionRef);
+
   return (
     <VisualizationWrapper>
       <div className="info ">
@@ -57,7 +58,9 @@ const Visualization = () => {
           <div className="ipad">
             <img src={Ipad} alt={'data in ipad'} />
           </div>
-          <div className="iphone">
+          <div
+            className={`iphone ${headingVisible ? 'animate__animated animate__fadeInUp' : ''}`}
+          >
             <img src={IPhone} alt={'data in iphone'} />
           </div>
         </div>
