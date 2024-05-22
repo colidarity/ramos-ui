@@ -58,10 +58,10 @@ a:hover {
 
 @keyframes animateMarquee {
   from {
-    left: 0;
+    left: 450px;
   }
   to {
-    left: -853px;
+    left: -2225px;
   }
 }
 

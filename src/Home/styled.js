@@ -538,7 +538,14 @@ export const CTAWrapper = styled.section`
     }
 
     .badge {
-      width: 435px;
+      &.animate__animated {
+        h2 {
+          animation: animateMarquee 8s linear infinite;
+          animation-delay: 1s;
+        }
+      }
+      width: 450px;
+      box-sizing: border-box;
       height: 140px;
       background: var(--yellow);
       padding: 12px;
@@ -547,7 +554,6 @@ export const CTAWrapper = styled.section`
       position: relative;
       h2 {
         position: absolute;
-        animation: animateMarquee 8s linear infinite;
         font-size: 120px;
         color: var(--black);
         line-height: 120px;
