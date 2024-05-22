@@ -70,6 +70,8 @@ export const ATFHead = styled.h1`
   span {
     color: #1a1a1a;
     text-align: right;
+    max-height: 120px;
+
     &.block {
       position: relative;
       overflow: hidden;
@@ -1079,13 +1081,12 @@ export const VisualizationWrapper = styled.section`
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
     text-align: center;
-    font-size: 398px;
+    font-size: 394px;
     line-height: 300px;
     margin-block: 250px 0;
     padding: 60px;
     z-index: 1;
     color: #fe4a23;
-    font-weight: 500;
     background-image: url(${GridBg});
     background-size: 70px;
     top: 300px;
@@ -1099,6 +1100,8 @@ export const VisualizationWrapper = styled.section`
       height: 0;
       border-bottom-right-radius: 100%;
       overflow: hidden;
+      font-weight: 600;
+      transition-delay: 2s;
       transition:
         width 2s ease-in-out 0s,
         height 2s ease-in-out 0s,
