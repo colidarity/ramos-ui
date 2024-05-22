@@ -44,14 +44,18 @@ export const PlayBtn = styled.button`
   left: 0;
   z-index: 100;
   transform: translate(-20px, -18px);
-  transition: all 0.2s ease-in;
+  transition: box-shadow 0.2s ease-in;
   cursor: pointer;
   img {
     height: 12px;
     width: 12px;
+    transition: all 0.2s ease-in;
   }
   &:hover {
-    transform: translate(-19px, -17px);
+    img {
+      height: 22px;
+      width: 22px;
+    }
     box-shadow: rgba(0, 0, 0, 0.5) 0px -4px 4px -5px inset;
   }
 `;
@@ -327,8 +331,8 @@ export const Button = styled.button`
   transition: all 0.2s ease-in-out;
   cursor: pointer;
   &:hover {
+    font-size: 0.7rem;
     cursor: pointer;
-    transform: translate(1px, 1px);
     box-shadow: rgba(0, 0, 0, 0.5) 0px -4px 4px -5px inset;
   }
 `;
@@ -991,6 +995,7 @@ export const VisualizationWrapper = styled.section`
   border-radius: 100px;
   padding-top: 100px;
   overflow: hidden;
+
   .info {
     display: flex;
     width: 100%;
@@ -1001,11 +1006,13 @@ export const VisualizationWrapper = styled.section`
       box-sizing: border-box;
     }
   }
+
   .info h3 {
     margin-bottom: 50px;
     font-size: 45px;
     font-weight: normal;
   }
+
   .accordion {
     display: flex;
     flex-direction: column;
@@ -1031,6 +1038,13 @@ export const VisualizationWrapper = styled.section`
       display: flex;
       align-items: center;
       justify-content: space-between;
+      transition: all 0.3s ease-out;
+      font-size: 14px;
+      &:hover {
+        cursor: pointer;
+        font-size: 16px;
+        background-color: var(--body-bg);
+      }
     }
   }
 

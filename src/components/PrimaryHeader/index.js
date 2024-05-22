@@ -18,7 +18,6 @@ const NavItems = [
 const PrimaryHeader = () => {
   const headerRef = useRef(null);
   const isVisible = useInView(headerRef);
-  console.log(isVisible);
 
   return (
     <StyledHeader
@@ -44,6 +43,7 @@ const PrimaryHeader = () => {
         className={isVisible ? 'animate__animated animate__slideInUp' : ''}
         bg="var(--btn-gray)"
         color="var(--black)"
+        width="100px"
       >
         Sign Up
       </Button>
