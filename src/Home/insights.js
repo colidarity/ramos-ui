@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import CountUp from 'react-countup';
 import {
   Button,
@@ -9,15 +9,55 @@ import {
   RoundedIcon,
   SalesStatisticCard,
   SettingUpReportCard,
+  VisitStatistic,
 } from './styled';
 import LayerIco from '../../assets/images/layer-thick-light-ico.svg';
 import LayerIcoYellow from '../../assets/images/layer-ico-yellow.png';
 import PersonIco1 from '../../assets/images/person-ico-1.svg';
 import PersonIco2 from '../../assets/images/person-ico-2.svg';
-import VisitStats from '../../assets/images/visit-stats.png';
 import UpArrowIco from '../../assets/images/up-arrow.svg';
+import RateStatisticIcon from '../../assets/images/hex.png';
 
 import useInView from '../hooks/useInView';
+import {
+  CartesianGrid,
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  XAxis,
+} from 'recharts';
+
+const dataLine = [
+  {
+    amt: 800,
+    month: 'Jan',
+  },
+  {
+    amt: 1200,
+    month: 'Feb',
+  },
+  {
+    amt: 1000,
+    month: 'Mar',
+  },
+  {
+    amt: 1500,
+    month: 'Apr',
+  },
+  {
+    amt: 1200,
+    month: 'May',
+  },
+  {
+    amt: 1800,
+  },
+  {
+    amt: 2000,
+  },
+  {
+    amt: 2500,
+  },
+];
 
 const Insights = () => {
   const insightsRef = useRef(null);
@@ -149,15 +189,47 @@ const Insights = () => {
                 </span>
               </figure>
             </div>
-            <img
-              className={`visit-statistics ${
-                insightsVisible
-                  ? 'animate__animated animate__fadeInUp'
-                  : 'hidden'
-              }`}
-              src={VisitStats}
-              alt="visit statistics"
-            />
+
+            <VisitStatistic>
+              <h6>Visit statistics</h6>
+              {counterVisible ? (
+                <>
+                  <ResponsiveContainer width={235} height={130}>
+                    <LineChart
+                      width={500}
+                      height={100}
+                      data={dataLine}
+                      margin={{ top: 0, right: 0, left: 8, bottom: 0 }}
+                    >
+                      <CartesianGrid strokeDasharray="3 3" stroke="#efefef" />
+                      <XAxis
+                        tick={{
+                          stroke: 'var(--light-gray)',
+                          fontSize: '10px',
+                        }}
+                        stroke="var(--white)"
+                        color="#eee"
+                        dataKey="month"
+                      />
+                      <Line dataKey="amt" stroke="#FFC606" fill="#FFF" />
+                    </LineChart>
+                  </ResponsiveContainer>
+
+                  <div className="statistic-board">
+                    <div className="top">
+                      <span>Rate</span>
+                      <img src={RateStatisticIcon} alt="rate-statistic-icon" />
+                    </div>
+                    <div className="bottom">
+                      <span className="plus">&#43;</span>
+                      <span className="percent">58&#37;</span>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                ''
+              )}
+            </VisitStatistic>
           </SalesStatisticCard>
         </div>
         <div className="right-card">

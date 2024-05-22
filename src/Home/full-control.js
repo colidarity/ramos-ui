@@ -214,7 +214,7 @@ const FullControl = () => {
                       </h5>
                       <span>Total Profit</span>
                       <br />
-                      <p class="revenue">
+                      <p className="revenue">
                         <small>$</small>
                         <span>1,312</span>K
                       </p>

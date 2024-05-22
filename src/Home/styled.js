@@ -360,7 +360,7 @@ export const SalesStatisticCard = styled.div`
   border-left: solid thin #e7e7e7;
   border-top: solid thin #e7e7e7;
   border-top-left-radius: 30px;
-  padding: 20px 20px 0 20px;
+  padding: 20px;
   box-sizing: border-box;
   overflow: hidden;
   h4 {
@@ -558,6 +558,7 @@ export const CTAWrapper = styled.section`
         color: var(--black);
         line-height: 120px;
         width: max-content;
+        left: 450px;
         span {
           padding-inline: 100px;
         }
@@ -1153,6 +1154,57 @@ export const InsightsData = styled.div`
     }
     button {
       background-color: var(--yellow);
+    }
+  }
+`;
+
+export const VisitStatistic = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: solid thin #e7e7e7;
+  padding: 15px;
+  border-radius: 16px;
+  h6,
+  span {
+    font-size: 12px;
+    display: block;
+    margin-bottom: 5px;
+  }
+  .statistic-board {
+    position: relative;
+    background-color: #fe4a23;
+    padding: 12px;
+    width: 80px;
+    height: 52px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    position: absolute;
+    right: 36px;
+    bottom: 40px;
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #fff;
+    }
+    .bottom {
+      color: #fff;
+      display: flex;
+      display: flex;
+      justify-content: start;
+      margin-top: 10px;
+      .plus {
+        font-size: 18px;
+      }
+      .percent {
+        font-size: 24px;
+      }
+    }
+    img {
+      width: 20px;
+      height: 20px;
+      border-radius: 100%;
     }
   }
 `;
