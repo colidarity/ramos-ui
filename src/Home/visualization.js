@@ -32,7 +32,7 @@ const Visualization = () => {
           </h3>
           <ul
             ref={accordionRef}
-            className={`accordion ${accordionVisible ? 'animate__animated animate__fadeInUp' : ''}`}
+            className={`accordion ${accordionVisible ? 'animate__animated animate__fadeInUp' : 'hidden'}`}
           >
             <li>
               <span>Instant Insights</span>
