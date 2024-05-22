@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import CountUp from 'react-countup';
 
 import Growth from '../../assets/images/conversion-rate.svg';
 import Person1Ico from '../../assets/images/person-ico-1.svg';
@@ -21,21 +22,38 @@ import {
   RoundedIcon,
   SalesRevenue,
 } from './styled';
+import useInView from '../hooks/useInView';
+import TextSplitter from '../components/TextSplitter';
 
 const FullControl = () => {
+  const titleRef = useRef(null);
+  const counterRef = useRef(null);
+  const dataControlRef = useRef(null);
+
+  const titleVisible = useInView(titleRef);
+  const counterVisible = useInView(counterRef);
+  const dataControlVisible = useInView(dataControlRef);
+
   return (
     <FullControlWrapper>
-      <BigH1>
-        We give you full
-        <br /> <span className="light">control</span> over your data
+      <BigH1 className={titleVisible ? 'animate-heading' : ''} ref={titleRef}>
+        <span className="block">
+          <TextSplitter text={'We give you full'} />{' '}
+        </span>{' '}
+        <span className="block">
+          <span className="light">
+            <TextSplitter text={'control'} />{' '}
+          </span>{' '}
+          <TextSplitter text={'over your data'} />
+        </span>
       </BigH1>
 
-      <DataControl className="data-control">
+      <DataControl ref={dataControlRef} className="data-control">
         <ImprovedCustomerService>
           <CardFlex>
             <ConversionRate>
               <h6 className="title">Conversion Rate</h6>
-              <div className="conversion-rate">
+              <div ref={counterRef} className="conversion-rate">
                 <RoundedIcon
                   imagesize="16px"
                   border="6px solid var(--btn-gray)"
@@ -45,7 +63,14 @@ const FullControl = () => {
                   <img src={Growth} alt="growth" />
                 </RoundedIcon>
                 <h5 className="rate">
-                  2,3<small>%</small>
+                  {counterVisible ? (
+                    <CountUp start={0} end={23} delay={0}>
+                      {({ countUpRef }) => <span ref={countUpRef} />}
+                    </CountUp>
+                  ) : (
+                    '23'
+                  )}
+                  <small>%</small>
                 </h5>
               </div>
               <p>
@@ -59,9 +84,16 @@ const FullControl = () => {
 
               <p className="revenue">
                 <small>$</small>
-                131,2K
+                {counterVisible ? (
+                  <CountUp start={0} end={1312} delay={0}>
+                    {({ countUpRef }) => <span ref={countUpRef} />}
+                  </CountUp>
+                ) : (
+                  '131,2'
+                )}
+                K
               </p>
-              <AnimatedBar />
+              <AnimatedBar className={counterVisible ? 'animate' : ''} />
 
               <Price>
                 <div className="row">
@@ -92,9 +124,21 @@ const FullControl = () => {
             <br /> with customers and increase their satisfaction.
           </p>
         </ImprovedCustomerService>
-        <MonitoringKeyIndicators>
+        <MonitoringKeyIndicators
+          className={
+            dataControlVisible
+              ? 'animate__animated animate__fadeInUp '
+              : 'hidden'
+          }
+        >
           <DataVisualization>
-            <div className="card-bg">
+            <div
+              className={`card-bg ${
+                dataControlVisible
+                  ? 'animate__animated animate__bounceIn'
+                  : 'hidden'
+              }`}
+            >
               <h5>
                 <RoundedIcon
                   borderradius={'6px'}
@@ -108,7 +152,7 @@ const FullControl = () => {
               </h5>
             </div>
 
-            <div className="insights">
+            <div className={`insights `}>
               <div className="left">
                 <h5>
                   <RoundedIcon

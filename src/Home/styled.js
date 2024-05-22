@@ -452,7 +452,7 @@ export const BigH1 = styled.h1`
   font-size: 120px;
   position: relative;
   font-weight: normal;
-  line-height: 120px;
+  /* line-height: 120px; */
   color: ${(props) => (props.color ? props.color : 'var(--black)')};
   text-align: ${(props) => (props.textalign ? props.textalign : 'left')};
   sup {
@@ -732,7 +732,6 @@ export const DataControl = styled.div`
       text-align: center;
       color: var(--black);
       font-size: 32px;
-      margin-top: 60px;
     }
     > p {
       font-size: 18px;
@@ -748,6 +747,9 @@ export const ImprovedCustomerService = styled.div`
   align-items: center;
   padding: 40px;
   box-sizing: border-box;
+  h4 {
+    margin-top: 60px;
+  }
 `;
 
 export const PerformanceCard = styled.div`
@@ -786,27 +788,40 @@ export const SalesRevenue = styled(PerformanceCard)`
 `;
 
 export const AnimatedBar = styled.figure`
-  width: 33%;
+  width: 0%;
   position: relative;
   display: block;
-  margin: 20px auto;
+  margin: 20px 33%;
   height: 5px;
   background-color: var(--yellow);
   border-radius: 3px;
-  &:after,
+  transition: width 1s ease-in-out;
+  trans &:after,
   &:before {
     border-radius: 3px;
     position: absolute;
-    width: 100%;
+    width: 0%;
     height: 5px;
     background-color: var(--green);
+    transition: width 0.33s linear;
     content: ' ';
+    animation-direction: normal;
   }
   &:before {
-    left: -105%;
+    left: -57px;
   }
   &:after {
-    left: 105%;
+    left: 57px;
+  }
+
+  transition-delay: 1s;
+
+  &.animate {
+    width: 33%;
+    &:after,
+    &:before {
+      width: 100%;
+    }
   }
 `;
 
@@ -896,6 +911,9 @@ export const MonitoringKeyIndicators = styled.div`
   align-items: center;
   padding: 40px;
   box-sizing: border-box;
+  h4 {
+    margin-top: 20px;
+  }
 `;
 
 export const DataVisualization = styled.div`
@@ -903,6 +921,7 @@ export const DataVisualization = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-top: 16px;
   h5 {
     display: flex;
     align-items: center;
