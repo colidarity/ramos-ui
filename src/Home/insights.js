@@ -121,7 +121,9 @@ const Insights = () => {
 
               <figure className="visitors">
                 <figcaption>Visitors</figcaption>
-                <span className="progress-bar"></span>
+                <span
+                  className={`progress-bar ${counterVisible ? 'animated' : ''}`}
+                ></span>
                 <span className="counter">
                   {counterVisible ? (
                     <CountUp start={0} end={56} delay={0}>

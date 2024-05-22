@@ -423,13 +423,21 @@ export const SalesStatisticCard = styled.div`
       margin-block: 10px;
       background-color: var(--light-gray);
       position: relative;
+
       &:after {
-        width: 30%;
+        transition: width 1s ease-in-out;
+        width: 0%;
         position: absolute;
         background-color: var(--green);
         height: 3px;
         left: 0;
         content: ' ';
+      }
+
+      &.animated {
+        &:after {
+          width: 30%;
+        }
       }
     }
 
@@ -1050,7 +1058,7 @@ export const VisualizationWrapper = styled.section`
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
     text-align: center;
-    font-size: 400px;
+    font-size: 398px;
     line-height: 300px;
     margin-block: 250px 0;
     padding: 60px;
