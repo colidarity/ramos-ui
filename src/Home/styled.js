@@ -1161,11 +1161,8 @@ export const VisualizationWrapper = styled.section`
       border-bottom-right-radius: 100%;
       overflow: hidden;
       font-weight: 600;
-      transition-delay: 2s;
-      transition:
-        width 2s ease-in-out 0s,
-        height 2s ease-in-out 0s,
-        border-bottom-right-radius 2s ease-in-out;
+      transition-delay: 3s;
+      transition: all 2s ease-in-out;
     }
 
     &.animate-heading {
