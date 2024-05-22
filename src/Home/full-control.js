@@ -6,17 +6,27 @@ import Person1Ico from '../../assets/images/person-ico-1.svg';
 import Person2Ico from '../../assets/images/person-ico-1.svg';
 import LinkIco from '../../assets/images/link-ico.png';
 import InsightsIco from '../../assets/images/insights.png';
-import InsightsChart from '../../assets/images/insights-chart.png';
+
+import {
+  AreaChart,
+  Area,
+  BarChart,
+  Bar,
+  XAxis,
+  ResponsiveContainer,
+} from 'recharts';
 
 import {
   AnimatedBar,
   BigH1,
+  Button,
   CardFlex,
   ConversionRate,
   DataControl,
   DataVisualization,
   FullControlWrapper,
   ImprovedCustomerService,
+  InsightsData,
   MonitoringKeyIndicators,
   Price,
   RoundedIcon,
@@ -29,10 +39,46 @@ const FullControl = () => {
   const titleRef = useRef(null);
   const counterRef = useRef(null);
   const dataControlRef = useRef(null);
+  const chartRef = useRef(chartVisible);
 
   const titleVisible = useInView(titleRef);
   const counterVisible = useInView(counterRef);
   const dataControlVisible = useInView(dataControlRef);
+  const chartVisible = useInView(chartRef);
+
+  const data = [
+    { year: '2021', profit: 3000, fill: '#F2F2F2' },
+    { year: '2020', profit: 1000, fill: '#F2F2F2' },
+    { year: '2019', profit: 3000, fill: '#F2F2F2' },
+    { year: '2018', profit: 5000, fill: '#FFD027' },
+    { year: '2017', profit: 2000, fill: '#F2F2F2' },
+  ];
+  const dataLine = [
+    {
+      amt: 800,
+    },
+    {
+      amt: 1200,
+    },
+    {
+      amt: 1000,
+    },
+    {
+      amt: 1500,
+    },
+    {
+      amt: 1200,
+    },
+    {
+      amt: 1800,
+    },
+    {
+      amt: 2000,
+    },
+    {
+      amt: 2500,
+    },
+  ];
 
   return (
     <FullControlWrapper>
@@ -152,22 +198,89 @@ const FullControl = () => {
 
             <div className={`insights `}>
               <div className="left">
-                <h5>
-                  <RoundedIcon
-                    borderradius={'6px'}
-                    imagesize="14px"
-                    size={'22px'}
-                    bg={'#f2f2f2'}
-                  >
-                    <img src={InsightsIco} alt="insights icon" />
-                  </RoundedIcon>
-                  Insights
-                </h5>
-                <img
-                  className="insights-chart"
-                  src={InsightsChart}
-                  alt="insights chart"
-                />
+                <InsightsData>
+                  <div className="insightdata-container">
+                    <div className="left">
+                      <h5>
+                        <RoundedIcon
+                          borderradius={'6px'}
+                          imagesize="14px"
+                          size={'22px'}
+                          bg={'#f2f2f2'}
+                        >
+                          <img src={InsightsIco} alt="insights icon" />
+                        </RoundedIcon>
+                        Insights
+                      </h5>
+                      <span>Total Profit</span>
+                      <br />
+                      <p class="revenue">
+                        <small>$</small>
+                        <span>1,312</span>K
+                      </p>
+                      <br />
+                      <Button className="">Data Visualization</Button>
+                    </div>
+                    <div className="right" ref={chartRef}>
+                      {chartVisible ? (
+                        <ResponsiveContainer width="100%" height={110}>
+                          <AreaChart
+                            width={500}
+                            height={100}
+                            data={dataLine}
+                            margin={{
+                              top: 0,
+                              right: 30,
+                              left: 20,
+                              bottom: 0,
+                            }}
+                          >
+                            <Area
+                              type="monotone"
+                              dataKey="amt"
+                              stroke="#FFC606"
+                              fill="#FFF"
+                              isAnimationActive={true}
+                              animationBegin={1000}
+                              animationDuration={2000}
+                            />
+                          </AreaChart>
+                          <BarChart
+                            data={data}
+                            margin={{
+                              top: 0,
+                              right: 30,
+                              left: 20,
+                              bottom: 10,
+                            }}
+                          >
+                            <XAxis
+                              tick={{
+                                stroke: 'var(--light-gray)',
+                                fontSize: '12px',
+                              }}
+                              stroke="var(--white)"
+                              dataKey="year"
+                              color="#eee"
+                            />
+
+                            <Bar
+                              dataKey="profit"
+                              fill="fill"
+                              isAnimationActive={true}
+                              animationBegin={250}
+                              animationDuration={1000}
+                              animationEasing="ease-in-out"
+                              radius={6}
+                            />
+                          </BarChart>
+                        </ResponsiveContainer>
+                      ) : (
+                        ''
+                      )}
+                    </div>
+                  </div>
+                </InsightsData>
               </div>
             </div>
           </DataVisualization>

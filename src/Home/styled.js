@@ -1051,7 +1051,6 @@ export const VisualizationWrapper = styled.section`
     border-bottom-right-radius: 50px;
     text-align: center;
     font-size: 400px;
-    font-weight: 600;
     margin: 100px 0 0 0;
     z-index: 1;
     padding: 0 50px 100px 50px;
@@ -1062,12 +1061,12 @@ export const VisualizationWrapper = styled.section`
     ${staggeredTransition()}
 
     &.animate-heading span span.split {
-      top: 100px;
+      top: 94px;
     }
 
     span {
       &.split {
-        font-weight: bold;
+        font-weight: 500;
         position: relative;
         top: 380px;
       }
@@ -1076,6 +1075,39 @@ export const VisualizationWrapper = styled.section`
         overflow: hidden;
         display: block;
       }
+    }
+  }
+`;
+
+export const InsightsData = styled.div`
+  .insightdata-container {
+    display: flex;
+    gap: 15px;
+    text-align: left;
+    align-items: flex-start;
+    span:first-child {
+      color: var(--gray-text);
+      font-size: 12px;
+    }
+    .left {
+      width: 40%;
+      h5 {
+        margin-bottom: 65px;
+      }
+    }
+    .right {
+      width: 60%;
+    }
+    .revenue {
+      font-size: 32px;
+      text-align: left;
+      small {
+        margin-right: 10px;
+        font-size: 24px;
+      }
+    }
+    button {
+      background-color: var(--yellow);
     }
   }
 `;
