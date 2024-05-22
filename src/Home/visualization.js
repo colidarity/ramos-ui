@@ -65,10 +65,11 @@ const Visualization = () => {
           </div>
         </div>
       </div>
-      <h1 className={`ramos-big-text ${titleVisible ? 'animate-heading' : ''}`}>
-        <span ref={titleRef} className="block">
-          <TextSplitter text={'Ramos'} />
-        </span>
+      <h1
+        ref={titleRef}
+        className={`ramos-big-text ${titleVisible ? 'animate-heading' : ''}`}
+      >
+        <span>Ramos</span>
       </h1>
     </VisualizationWrapper>
   );

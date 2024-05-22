@@ -972,7 +972,7 @@ export const DataVisualization = styled.div`
 `;
 
 export const VisualizationWrapper = styled.section`
-  background-color: #f4f3f3;
+  background: linear-gradient(rgba(244, 243, 243, 1), rgba(249, 249, 249, 1));
   border-radius: 100px;
   padding-top: 100px;
   overflow: hidden;
@@ -1051,29 +1051,36 @@ export const VisualizationWrapper = styled.section`
     border-bottom-right-radius: 50px;
     text-align: center;
     font-size: 400px;
-    margin: 100px 0 0 0;
+    line-height: 300px;
+    margin-block: 250px 0;
+    padding: 60px;
     z-index: 1;
-    padding: 0 50px 100px 50px;
     color: #fe4a23;
+    font-weight: 500;
     background-image: url(${GridBg});
     background-size: 70px;
-
-    ${staggeredTransition()}
-
-    &.animate-heading span span.split {
-      top: 94px;
+    top: 300px;
+    width: 1300px;
+    height: 420px;
+    box-sizing: border-box;
+    span {
+      display: block;
+      box-sizing: border-box;
+      width: 0;
+      height: 0;
+      border-bottom-right-radius: 100%;
+      overflow: hidden;
+      transition:
+        width 2s ease-in-out 0s,
+        height 2s ease-in-out 0s,
+        border-bottom-right-radius 2s ease-in-out;
     }
 
-    span {
-      &.split {
-        font-weight: 500;
-        position: relative;
-        top: 380px;
-      }
-      &.block {
-        position: relative;
-        overflow: hidden;
-        display: block;
+    &.animate-heading {
+      span {
+        width: 100%;
+        height: 100%;
+        border-bottom-right-radius: 0;
       }
     }
   }
