@@ -3,6 +3,7 @@ import React, { lazy } from 'react';
 import PrimaryHeader from '../components/PrimaryHeader';
 
 import { Container } from './styled';
+import Visualization from './visualization';
 
 const CTA = lazy(() => import('./cta'));
 const ATFContent = lazy(() => import('./atf'));
@@ -18,6 +19,7 @@ const Home = () => {
       <ATFContent />
       <Insights />
       <CTA />
+      <Visualization />
       <FullControl />
       <GetStarted />
       <Footer />

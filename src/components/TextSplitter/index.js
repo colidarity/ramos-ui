@@ -7,7 +7,13 @@ const TextSplitter = ({ text, appendedMarkup }) => {
         {char}
       </span>
     )),
-    appendedMarkup ? <span className="split">{appendedMarkup}</span> : '',
+    appendedMarkup ? (
+      <span key={`appended-text-${text}`} className="split">
+        {appendedMarkup}
+      </span>
+    ) : (
+      ''
+    ),
   ];
 };
 

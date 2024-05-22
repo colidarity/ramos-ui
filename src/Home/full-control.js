@@ -126,9 +126,7 @@ const FullControl = () => {
         </ImprovedCustomerService>
         <MonitoringKeyIndicators
           className={
-            dataControlVisible
-              ? 'animate__animated animate__fadeInUp '
-              : 'hidden'
+            dataControlVisible ? 'animate__animated animate__fadeIn ' : 'hidden'
           }
         >
           <DataVisualization>

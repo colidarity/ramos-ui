@@ -69,7 +69,7 @@ export const ATFHead = styled.h1`
     &.block {
       position: relative;
       overflow: hidden;
-      max-height: 120px;
+
       display: block;
       &:nth-child(1) {
         width: 63%;
@@ -449,10 +449,9 @@ export const SalesStatisticCard = styled.div`
 `;
 
 export const BigH1 = styled.h1`
-  font-size: 120px;
+  font-size: ${(props) => (props.fontsize ? props.fontsize : '120px')};
   position: relative;
   font-weight: normal;
-  /* line-height: 120px; */
   color: ${(props) => (props.color ? props.color : 'var(--black)')};
   text-align: ${(props) => (props.textalign ? props.textalign : 'left')};
   sup {
@@ -479,7 +478,7 @@ export const BigH1 = styled.h1`
     &.block {
       position: relative;
       overflow: hidden;
-      max-height: 120px;
+
       display: block;
     }
   }
@@ -652,20 +651,21 @@ export const FooterWrapper = styled.footer`
 `;
 
 export const FullControlWrapper = styled.section`
-  padding: 0 60px;
+  padding: 100px 60px 50px;
   box-sizing: border-box;
-  height: 880px;
 `;
 
 export const GetStartedWrapper = styled.section`
-  padding: 100px 60px;
+  padding: 50px 60px;
   box-sizing: border-box;
+
   .get-started-sec {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 40px;
+    overflow: hidden;
     .logo-ico {
       border-radius: 30px;
       height: 100px;
@@ -694,6 +694,7 @@ export const DataControl = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-block: 60px;
+  overflow: hidden;
   > div {
     display: flex;
     flex-direction: column;
@@ -747,6 +748,7 @@ export const ImprovedCustomerService = styled.div`
   align-items: center;
   padding: 40px;
   box-sizing: border-box;
+  overflow: hidden;
   h4 {
     margin-top: 60px;
   }
@@ -796,7 +798,9 @@ export const AnimatedBar = styled.figure`
   background-color: var(--yellow);
   border-radius: 3px;
   transition: width 1s ease-in-out;
-  trans &:after,
+  transition-delay: 1s;
+
+  &:after,
   &:before {
     border-radius: 3px;
     position: absolute;
@@ -813,8 +817,6 @@ export const AnimatedBar = styled.figure`
   &:after {
     left: 57px;
   }
-
-  transition-delay: 1s;
 
   &.animate {
     width: 33%;
@@ -965,6 +967,115 @@ export const DataVisualization = styled.div`
 
     .insights-chart {
       width: 100%;
+    }
+  }
+`;
+
+export const VisualizationWrapper = styled.section`
+  background-color: #f4f3f3;
+  border-radius: 100px;
+  padding-top: 100px;
+  overflow: hidden;
+  .info {
+    display: flex;
+    width: 100%;
+    padding: 50px 0 0 60px;
+    box-sizing: border-box;
+    div.half-width {
+      width: 50%;
+      box-sizing: border-box;
+    }
+  }
+  .info h3 {
+    margin-bottom: 50px;
+    font-size: 45px;
+    font-weight: normal;
+  }
+  .accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 295px;
+    min-height: 210px;
+    &.animate__animated {
+      li {
+        margin: 0;
+      }
+    }
+
+    li {
+      transition: margin 1s ease-in-out;
+      margin: -20px 0;
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 18px;
+      box-shadow: rgba(0, 0, 0, 0.12) 1px 9px 8px 0px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  .devices {
+    position: relative;
+    .ipad {
+      position: absolute;
+      right: 0;
+      img {
+        width: 690px;
+        height: auto;
+        border-top-left-radius: 54px;
+        border-bottom-left-radius: 53px;
+        box-shadow: rgba(0, 0, 0, 0.2) 50px 20px 25px 6px;
+      }
+    }
+    .iphone {
+      position: absolute;
+      left: -218px;
+      top: 182px;
+      z-index: 2;
+      img {
+        width: 300px;
+        height: 650px;
+        border-radius: 40px;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 25px 0px;
+      }
+    }
+  }
+
+  .ramos-big-text {
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    text-align: center;
+    font-size: 400px;
+    font-weight: 600;
+    margin: 100px 0 0 0;
+    z-index: 1;
+    padding: 0 50px 100px 50px;
+    color: #fe4a23;
+    background-image: url(${GridBg});
+    background-size: 70px;
+
+    ${staggeredTransition()}
+
+    &.animate-heading span span.split {
+      top: 100px;
+    }
+
+    span {
+      &.split {
+        font-weight: bold;
+        position: relative;
+        top: 380px;
+      }
+      &.block {
+        position: relative;
+        overflow: hidden;
+        display: block;
+      }
     }
   }
 `;
