@@ -462,6 +462,27 @@ export const BigH1 = styled.h1`
     text-align: right;
     color: var(--light-gray);
   }
+
+  ${staggeredTransition()}
+
+  &.animate-heading span span.split {
+    top: 0;
+  }
+
+  span {
+    &.split {
+      /* display: inline-block; */
+      /* transform: translateY(120px); */
+      position: relative;
+      top: 120px;
+    }
+    &.block {
+      position: relative;
+      overflow: hidden;
+      max-height: 120px;
+      display: block;
+    }
+  }
 `;
 
 export const ButtonGroup = styled.div`

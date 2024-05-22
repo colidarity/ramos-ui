@@ -4,6 +4,7 @@ import { BigH1, Button, ButtonGroup, CTAWrapper, RoundedIcon } from './styled';
 import HeartBeatIco from '../../assets/images/heart-beat.png';
 import GrowFasterIco from '../../assets/images/grow-faster.png';
 import useInView from '../hooks/useInView';
+import TextSplitter from '../components/TextSplitter';
 
 const CTA = () => {
   const titleRef = useRef(null);
@@ -15,9 +16,16 @@ const CTA = () => {
   const footerVisible = useInView(footerRef);
   return (
     <CTAWrapper>
-      <BigH1 ref={titleRef}>
-        Maximize <span className="light">efficiency</span>
-        <br /> with our intuitive
+      <BigH1 className={titleVisible ? 'animate-heading' : ''} ref={titleRef}>
+        <span className="block">
+          <TextSplitter text={'Maximize'} />{' '}
+          <span className="light">
+            <TextSplitter text={'efficiency'} />
+          </span>
+        </span>
+        <span className="block">
+          <TextSplitter text={'with our intuitive'} />
+        </span>
       </BigH1>
 
       <div className="badges" ref={titleIconsRef}>
