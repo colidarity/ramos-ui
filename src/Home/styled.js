@@ -1060,26 +1060,80 @@ export const VisualizationWrapper = styled.section`
   .devices {
     position: relative;
     .ipad {
-      position: absolute;
       right: 0;
+      position: relative;
+      z-index: 2;
+      width: 690px;
+      height: 660px;
+      box-sizing: border-box;
+      border: solid 24px var(--black);
+      border-radius: 47px;
+      background: #fff;
+      &:before {
+        content: ' ';
+        display: block;
+        width: 30px;
+        height: 4px;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        background-color: var(--black);
+        position: absolute;
+        top: -28px;
+        left: 40px;
+        -webkit-box-reflect: right;
+      }
+      &:after {
+        content: ' ';
+        display: block;
+        width: 4px;
+        height: 30px;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        background-color: var(--black);
+        position: absolute;
+        top: 50px;
+        left: -28px;
+      }
       img {
-        width: 690px;
-        height: auto;
-        border-top-left-radius: 54px;
-        border-bottom-left-radius: 53px;
-        box-shadow: rgba(0, 0, 0, 0.2) 50px 20px 25px 6px;
+        &.header {
+          width: 100%;
+          border-top-left-radius: 20px;
+        }
+        &.content {
+          width: 545px;
+          border-bottom-left-radius: 20px;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+        }
       }
     }
     .iphone {
       position: absolute;
-      left: -218px;
+      left: -180px;
       top: 182px;
       z-index: 2;
+      width: 300px;
+      height: 654px;
+      box-sizing: border-box;
+      border: solid 11px var(--black);
+      border-radius: 47px;
+      background: #fff;
       img {
-        width: 300px;
-        height: 650px;
-        border-radius: 40px;
-        box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 25px 0px;
+        width: 100%;
+
+        &.header {
+          border-top-left-radius: 50px;
+          border-top-right-radius: 50px;
+        }
+
+        &.content {
+          position: absolute;
+          bottom: 0px;
+          left: 0;
+          width: 100%;
+          border-radius: 13px 13px 35px 35px;
+        }
       }
     }
   }
@@ -1090,8 +1144,7 @@ export const VisualizationWrapper = styled.section`
     text-align: center;
     font-size: 394px;
     line-height: 300px;
-    margin-block: 250px 0;
-    padding: 60px;
+    padding: 20px 60px;
     z-index: 1;
     color: #fe4a23;
     background-image: url(${GridBg});
