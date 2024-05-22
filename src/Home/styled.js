@@ -676,13 +676,20 @@ export const GetStartedWrapper = styled.section`
     overflow: hidden;
     .logo-ico {
       border-radius: 30px;
-      height: 100px;
-      width: 100px;
+      height: 150px;
+      width: 150px;
       background-color: var(--orange);
       display: flex;
       align-items: center;
       justify-content: center;
       box-shadow: rgba(254, 74, 35, 0.25) 0px 25px 20px -6px;
+      transition: all 0.5s ease-out;
+
+      &.animated {
+        width: 100px;
+        height: 100px;
+      }
+
       img {
         width: 46px;
         height: 46px;

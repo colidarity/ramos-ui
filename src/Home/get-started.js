@@ -19,7 +19,7 @@ const GetStarted = () => {
       <div className="get-started-sec">
         <figure
           ref={iconRef}
-          className={`logo-ico ${iconVisible ? 'animate__animated animate__zoomOut animate__slideInDown' : ''}`}
+          className={`logo-ico ${iconVisible ? 'animated' : ''}`}
         >
           <img src={LinkIco} alt="logo" />
         </figure>
