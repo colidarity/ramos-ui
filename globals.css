@@ -29,6 +29,7 @@ html {
 
 body {
   background-color: var(--body-bg);
+  scroll-behavior: inherit;
 }
 
 .flex {
@@ -76,4 +77,8 @@ a:hover {
 
 .fade-in {
   opacity: 1;
+}
+
+.fade-in-side {
+  transform: translate(0px, 0px) !important;
 }

@@ -1,12 +1,13 @@
 import { useEffect, useMemo, useState } from 'react';
 
-export default function useInView(ref) {
+export default function useInView(ref, options) {
   const [isIntersecting, setIntersecting] = useState(false);
 
   const observer = useMemo(
     () =>
-      new IntersectionObserver(([entry]) =>
-        setIntersecting(entry.isIntersecting)
+      new IntersectionObserver(
+        ([entry]) => setIntersecting(entry.isIntersecting),
+        options
       ),
     [ref]
   );

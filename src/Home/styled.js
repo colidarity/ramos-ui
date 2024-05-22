@@ -12,7 +12,7 @@ export const Container = styled.div`
 
 export const ContentSection = styled.section`
   width: 100%;
-  height: 768px;
+  height: 100vh;
   position: relative;
 `;
 
@@ -264,8 +264,10 @@ export const InsightsContent = styled.section`
           border: solid thin #424141;
           background: #131111;
           border-radius: 30px;
+          transition: 0.5s transform linear;
         }
         .layers {
+          transform: translate(20px, 0px);
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -286,6 +288,7 @@ export const InsightsContent = styled.section`
         }
 
         .transactions {
+          transform: translate(-20px, 0px);
           color: var(--white);
           padding-inline: 20px;
           box-sizing: border-box;
@@ -294,7 +297,7 @@ export const InsightsContent = styled.section`
             margin-block: 20px;
           }
 
-          span {
+          span.figure {
             display: flex;
             flex-direction: row;
             font-size: 14px;
@@ -353,6 +356,7 @@ export const SalesStatisticCard = styled.div`
   border-top-left-radius: 30px;
   padding: 20px 20px 0 20px;
   box-sizing: border-box;
+  overflow: hidden;
   h4 {
     font-size: 18px;
     color: var(--black);
@@ -376,6 +380,7 @@ export const SalesStatisticCard = styled.div`
     figcaption {
       display: flex;
       flex-direction: column;
+      width: 103px;
       span {
         &.label {
           font-size: 16px;

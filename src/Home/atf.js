@@ -34,7 +34,6 @@ const ATFContent = () => {
       setShowIcons(false);
     }
   }, [isVisible]);
-  console.log(isVisible);
 
   return (
     <ContentSection>

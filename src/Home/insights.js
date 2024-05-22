@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import CountUp from 'react-countup';
 import {
   Button,
   InsightsContent,
@@ -16,9 +17,19 @@ import PersonIco2 from '../../assets/images/person-ico-2.svg';
 import VisitStats from '../../assets/images/visit-stats.png';
 import UpArrowIco from '../../assets/images/up-arrow.svg';
 
+import useInView from '../hooks/useInView';
+
 const Insights = () => {
+  const insightsRef = useRef(null);
+  const counterRef = useRef(null);
+  const footerRef = useRef(null);
+
+  const insightsVisible = useInView(insightsRef);
+  const counterVisible = useInView(counterRef);
+  const footerVisible = useInView(footerRef);
+
   return (
-    <InsightsWrapper>
+    <InsightsWrapper ref={insightsRef}>
       <InsightsTitle>
         <div className="left">
           <h2>
@@ -38,23 +49,48 @@ const Insights = () => {
       <InsightsContent>
         <div className="left-card">
           <SettingUpReportCard>
-            <Button bg="var(--yellow)" width="max-content" color="var(--black)">
+            <Button
+              className={
+                counterVisible ? 'animate__animated animate__zoomIn ' : 'hidden'
+              }
+              bg="var(--yellow)"
+              width="max-content"
+              color="var(--black)"
+            >
               Setting up reports
             </Button>
 
-            <h3>
+            <h3
+              className={
+                counterVisible
+                  ? 'animate__animated animate__fadeInUp'
+                  : 'hidden'
+              }
+            >
               Fash and easy access
               <br />
               to analytics
             </h3>
-            <p>
+            <p
+              className={
+                counterVisible
+                  ? 'animate__animated animate__fadeInUp'
+                  : 'hidden'
+              }
+            >
               One platform is a comprehensive system of solutions that will be
               the first step towards digitization of your business
             </p>
           </SettingUpReportCard>
           <SalesStatisticCard>
             <h4>Sales Statistic</h4>
-            <div>
+            <div
+              className={
+                insightsVisible
+                  ? 'animate__animated animate__fadeInUp'
+                  : 'hidden'
+              }
+            >
               <figure className="total-profit">
                 <RoundedIcon
                   imagesize="20px"
@@ -65,8 +101,20 @@ const Insights = () => {
                 </RoundedIcon>
                 <figcaption>
                   <span className="label">Total Profit</span>
-                  <span className="amount">
-                    <small>$</small> 264,2K
+                  <span className="amount" ref={counterRef}>
+                    <small>$</small>
+                    {counterVisible ? (
+                      <CountUp start={0} end={2642} delay={0}>
+                        {({ countUpRef }) => (
+                          <div>
+                            <span ref={countUpRef} />
+                          </div>
+                        )}
+                      </CountUp>
+                    ) : (
+                      '264,2'
+                    )}
+                    K
                   </span>
                 </figcaption>
               </figure>
@@ -75,7 +123,17 @@ const Insights = () => {
                 <figcaption>Visitors</figcaption>
                 <span className="progress-bar"></span>
                 <span className="counter">
-                  56K
+                  {counterVisible ? (
+                    <CountUp start={0} end={56} delay={0}>
+                      {({ countUpRef }) => (
+                        <div>
+                          <span ref={countUpRef} />
+                        </div>
+                      )}
+                    </CountUp>
+                  ) : (
+                    '56K'
+                  )}
                   <sup>
                     <RoundedIcon
                       imagesize="10px"
@@ -90,35 +148,71 @@ const Insights = () => {
               </figure>
             </div>
             <img
+              className={`visit-statistics ${
+                insightsVisible
+                  ? 'animate__animated animate__fadeInUp'
+                  : 'hidden'
+              }`}
               src={VisitStats}
-              className="visit-statistics"
               alt="visit statistics"
             />
           </SalesStatisticCard>
         </div>
         <div className="right-card">
           <div>
-            <figure className="layers">
-              <img src={LayerIcoYellow} height={40} width={40} />
+            <figure
+              className={`layers ${insightsVisible ? 'fade-in-side' : 'hidden'}`}
+            >
+              <img
+                className={
+                  insightsVisible
+                    ? 'animate__animated animate__bounceIn'
+                    : 'hidden'
+                }
+                src={LayerIcoYellow}
+                height={40}
+                width={40}
+              />
 
               <div className="profile-icons">
                 <img src={PersonIco1} height={40} width={40} />
                 <img src={PersonIco2} height={40} width={40} />
               </div>
             </figure>
-            <figure className="transactions">
+            <figure
+              className={`transactions ${insightsVisible ? 'fade-in-side' : 'hidden '}`}
+            >
               <h5>Transactions</h5>
-              <span>
+              <span className="figure">
                 <RoundedIcon imagesize="15px" size={'20px'} bg={'var(--green)'}>
                   <img src={UpArrowIco} />
                 </RoundedIcon>
                 &nbsp;<sup>+14%</sup>
               </span>
-              <figcaption>43K </figcaption>
+              <figcaption>
+                {counterVisible ? (
+                  <CountUp start={0} end={43} delay={0}>
+                    {({ countUpRef }) => <span ref={countUpRef}></span>}
+                  </CountUp>
+                ) : (
+                  <>43</>
+                )}
+                K
+              </figcaption>
             </figure>
           </div>
-          <h3>Widget control</h3>
-          <p>
+          <h3
+            className={
+              counterVisible ? 'animate__animated animate__fadeInUp' : 'hidden'
+            }
+          >
+            Widget control
+          </h3>
+          <p
+            className={
+              counterVisible ? 'animate__animated animate__fadeInUp' : 'hidden'
+            }
+          >
             Reports provide a comprehensive overview
             <br />
             of important aspect of web analytics
@@ -126,13 +220,19 @@ const Insights = () => {
         </div>
       </InsightsContent>
 
-      <InsightsFooter>
+      <InsightsFooter ref={footerRef}>
         <h2>
           <small>Up to</small> 45%
         </h2>
-        Increase your analytics efficiency by upto 45%. Unique <br />
-        algorithms provide insights from data, reduce time for analysis
-        <br /> and save time for making important, informed decisions.
+        <p
+          className={
+            footerVisible ? 'animate__animated animate__fadeInUp' : 'hidden'
+          }
+        >
+          Increase your analytics efficiency by upto 45%. Unique <br />
+          algorithms provide insights from data, reduce time for analysis
+          <br /> and save time for making important, informed decisions.
+        </p>
       </InsightsFooter>
     </InsightsWrapper>
   );
